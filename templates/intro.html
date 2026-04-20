@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Introduction — LoanPredict{% endblock %}
+{% block content %}
+<div class="page-header">
+    <p class="section-label">Under the Hood</p>
+    <h1 class="fade-in">Introduction</h1>
+    <p class="subtitle fade-in delay-1">How LoanPredict transforms raw applicant data into a reliable loan-eligibility decision.</p>
+</div>
+<div class="section" style="max-width:860px; padding-top:2rem;">
+    <div class="info-block fade-in">
+        <h3>The Problem</h3>
+        <p>Traditional loan processing relies heavily on manual review, making it slow, inconsistent, and prone to human bias. LoanPredict replaces that bottleneck with a data-driven ML pipeline that delivers consistent, objective predictions in under a second.</p>
+    </div>
+    <div class="info-block fade-in delay-1">
+        <h3>Dataset</h3>
+        <p>The model was trained on the widely-used Loan Prediction dataset containing records of previous applicants with features like income, credit history, education, and property area — labels indicate whether the loan was ultimately approved or rejected.</p>
+    </div>
+    <div class="info-block fade-in delay-2">
+        <h3>Data Engineering</h3>
+        <p>Missing values are dropped, categorical variables are numerically encoded, and continuous features are normalised with StandardScaler — the same scaler is persisted and reused at inference to prevent data leakage.</p>
+    </div>
+    <div class="info-block fade-in delay-3">
+        <h3>Model Selection</h3>
+        <p>Three classifiers are evaluated on a held-out test set: Logistic Regression, Decision Tree Classifier, and K-Nearest Neighbours. The best-performing model is serialised to model.pkl and loaded at startup — no retraining needed at inference time.</p>
+    </div>
+    <div class="info-block fade-in delay-4">
+        <h3>Serving the Prediction</h3>
+        <p>The Flask app receives the form POST, applies identical preprocessing, passes the scaled vector to the loaded model, and returns the binary decision along with the classifier's confidence score.</p>
+    </div>
+</div>
+{% endblock %}
