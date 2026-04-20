@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}Predict — LoanPredict{% endblock %}
+{% block content %}
+<div class="page-header">
+    <p class="section-label">ML Engine</p>
+    <h1 class="fade-in">Loan Prediction</h1>
+    <p class="subtitle fade-in delay-1">Fill in the applicant details below. Our model will return an instant eligibility verdict.</p>
+</div>
+<div class="section" style="padding-top:2rem; max-width:860px;">
+    <div class="form-card fade-in">
+        <form action="{{ url_for('predict') }}" method="POST">
+            <p class="form-section-title">Personal Information</p>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select name="gender" id="gender" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="married">Marital Status</label>
+                    <select name="married" id="married" required>
+                        <option value="Yes">Married</option>
+                        <option value="No">Unmarried</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row three">
+                <div class="form-group">
+                    <label for="dependents">Dependents</label>
+                    <select name="dependents" id="dependents" required>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3+">3+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="education">Education</label>
+                    <select name="education" id="education" required>
+                        <option value="Graduate">Graduate</option>
+                        <option value="Not Graduate">Not Graduate</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="self_employed">Self Employed</label>
+                    <select name="self_employed" id="self_employed" required>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+            </div>
+            <p class="form-section-title" style="margin-top:1.75rem;">Financial Details</p>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="applicant_income">Applicant Income (per month)</label>
+                    <input type="number" name="applicant_income" id="applicant_income" required placeholder="e.g. 5000" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="coapplicant_income">Co-applicant Income (per month)</label>
+                    <input type="number" name="coapplicant_income" id="coapplicant_income" required placeholder="e.g. 2000" min="0">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="loan_amount">Loan Amount (in thousands)</label>
+                    <input type="number" name="loan_amount" id="loan_amount" required placeholder="e.g. 150" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="loan_amount_term">Loan Term (days)</label>
+                    <input type="number" name="loan_amount_term" id="loan_amount_term" required placeholder="e.g. 360" min="1">
+                </div>
+            </div>
+            <p class="form-section-title" style="margin-top:1.75rem;">Loan Context</p>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="credit_history">Credit History</label>
+                    <select name="credit_history" id="credit_history" required>
+                        <option value="1">1 — Good</option>
+                        <option value="0">0 — Bad / None</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="property_area">Property Area</label>
+                    <select name="property_area" id="property_area" required>
+                        <option value="Semiurban">Semiurban</option>
+                        <option value="Urban">Urban</option>
+                        <option value="Rural">Rural</option>
+                    </select>
+                </div>
+            </div>
+            <div style="margin-top:2rem;">
+                <button type="submit" class="btn" style="width:100%; justify-content:center; font-size:1rem; padding:1rem;">Run Prediction →</button>
+            </div>
+        </form>
+        {% if prediction_text %}
+        <div class="result-card {{ result_class }}">
+            <div class="result-icon">{% if result_class == 'approved' %}✅{% else %}❌{% endif %}</div>
+            <div class="result-text">
+                <h3>{{ prediction_text }}</h3>
+                <p>{% if result_class == 'approved' %}Our model predicts a high probability of approval based on the provided profile.{% else %}Based on the provided metrics, this application carries elevated risk.{% endif %}</p>
+            </div>
+            {% if confidence %}<div class="confidence-badge">{{ confidence }}% confidence</div>{% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
