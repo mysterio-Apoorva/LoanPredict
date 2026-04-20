@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}About — LoanPredict{% endblock %}
+{% block content %}
+<div class="page-header">
+    <p class="section-label">The Team</p>
+    <h1 class="fade-in">About Us</h1>
+    <p class="subtitle fade-in delay-1">The engineers who built, trained, and deployed LoanPredict.</p>
+</div>
+<div class="section" style="max-width:900px; padding-top:2rem;">
+    <div class="grid-3 fade-in">
+        <div class="card team-card">
+            <div class="team-avatar">👨‍💻</div>
+            <h3>Daksh Lakhmara</h3>
+            <p class="role">ML Engineer</p>
+        </div>
+        <div class="card team-card delay-1">
+            <div class="team-avatar">👩‍💻</div>
+            <h3>Cherrika</h3>
+            <p class="role">ML Engineer</p>
+        </div>
+        <div class="card team-card delay-2">
+            <div class="team-avatar">👨‍💻</div>
+            <h3>Bhavesh Sunda</h3>
+            <p class="role">ML Engineer</p>
+        </div>
+    </div>
+    <div class="info-block fade-in delay-3" style="margin-top:2rem;">
+        <h3>The Project</h3>
+        <p>LoanPredict was built as an end-to-end ML project — from data cleaning and feature engineering through model selection, serialisation, and web integration. The goal: demonstrate that a production-grade ML application can be built cleanly with Python, Scikit-learn, and Flask.</p>
+    </div>
+</div>
+{% endblock %}
