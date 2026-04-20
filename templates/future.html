@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Future Scope — LoanPredict{% endblock %}
+{% block content %}
+<div class="page-header">
+    <p class="section-label">Roadmap</p>
+    <h1 class="fade-in">Future Scope</h1>
+    <p class="subtitle fade-in delay-1">Where LoanPredict is headed — a roadmap for the next generation of AI-driven financial services.</p>
+</div>
+<div class="section" style="max-width:900px; padding-top:2rem;">
+    <div class="future-grid fade-in">
+        <div class="future-item">
+            <div class="fi-icon">🌳</div>
+            <h4>Ensemble Learning</h4>
+            <p>Integrating Random Forest and XGBoost ensemble models for state-of-the-art accuracy and reduced variance on unseen applicant profiles.</p>
+        </div>
+        <div class="future-item">
+            <div class="fi-icon">💡</div>
+            <h4>Explainable AI (XAI)</h4>
+            <p>SHAP value integration to surface the top contributing features behind each prediction — giving applicants transparent, actionable feedback.</p>
+        </div>
+        <div class="future-item">
+            <div class="fi-icon">☁️</div>
+            <h4>Cloud Deployment</h4>
+            <p>Containerised Docker image deployable on AWS / GCP / Railway for global, low-latency availability at scale.</p>
+        </div>
+        <div class="future-item">
+            <div class="fi-icon">📱</div>
+            <h4>Mobile App</h4>
+            <p>Native iOS and Android applications backed by a REST API so applicants can check eligibility on-the-go.</p>
+        </div>
+        <div class="future-item">
+            <div class="fi-icon">🔄</div>
+            <h4>Continuous Retraining</h4>
+            <p>Automated pipelines that retrain models on fresh data, detect drift, and promote new versions only when accuracy improves.</p>
+        </div>
+        <div class="future-item">
+            <div class="fi-icon">🛡️</div>
+            <h4>Fairness Auditing</h4>
+            <p>Statistical bias detection across gender and demographic groups to ensure equitable predictions that comply with lending regulations.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
