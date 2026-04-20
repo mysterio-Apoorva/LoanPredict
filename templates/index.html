@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}LoanPredict — AI Loan Intelligence{% endblock %}
+{% block content %}
+<section class="hero">
+    <div style="position:relative; z-index:1; max-width:720px;">
+        <div class="hero-badge fade-in">AI-Powered Predictions</div>
+        <h1 class="fade-in delay-1">Smarter Loans,<br><span class="accent">Instant</span> Decisions</h1>
+        <p class="subtitle fade-in delay-2">Harness logistic regression trained on real-world data to predict loan approval in seconds — accurately, transparently, and privately.</p>
+        <div class="fade-in delay-3" style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+            <a href="{{ url_for('predict') }}" class="btn">Predict Now →</a>
+            <a href="{{ url_for('introduction') }}" class="btn btn-outline">How It Works</a>
+        </div>
+    </div>
+</section>
+<div class="section" style="padding-top:0;">
+    <div class="grid-3">
+        <div class="card fade-in delay-1">
+            <div class="card-icon">⚡</div>
+            <h3>Instant Results</h3>
+            <p>Real-time predictions from your financial profile with zero wait time — powered by pre-trained ML.</p>
+        </div>
+        <div class="card fade-in delay-2">
+            <div class="card-icon">🔒</div>
+            <h3>Local Processing</h3>
+            <p>Your data never leaves the server pipeline. No third-party APIs. No data retention.</p>
+        </div>
+        <div class="card fade-in delay-3">
+            <div class="card-icon">🎯</div>
+            <h3>Model Accuracy</h3>
+            <p>Best-performing classifier selected automatically from Logistic Regression, Decision Tree, and KNN.</p>
+        </div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-top:1.25rem;">
+        <div class="card" style="text-align:center; padding:1.5rem;">
+            <div style="font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:var(--green);">11</div>
+            <div style="font-size:0.8rem; color:var(--muted); margin-top:0.25rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;">Input Features</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1.5rem;">
+            <div style="font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:var(--gold);">3</div>
+            <div style="font-size:0.8rem; color:var(--muted); margin-top:0.25rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;">Models Evaluated</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1.5rem;">
+            <div style="font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:var(--green);">&lt;1s</div>
+            <div style="font-size:0.8rem; color:var(--muted); margin-top:0.25rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;">Prediction Time</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
